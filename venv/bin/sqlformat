@@ -1,4 +1,4 @@
-#!/home/can/git/Ecommerce/venv/bin/python3
+#!/home/can/git/ecommerce/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

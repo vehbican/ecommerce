@@ -13,14 +13,10 @@
       <div class="col">
         <div class="card shadow-sm">
           <a href="{% url 'store:product_detail' product.slug %}">
-            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+            <img src="{{ product.image.url }}" class="card-img-top custom-image-size" alt="{{ product.title }}">
           </a>
           <div class="card-body">
             <p class="card-text">{{ product.title }}</p>
-            
-              {% csrf_token %}
-           
-            </form>
           </div>
         </div>
       </div>

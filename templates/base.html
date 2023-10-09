@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
-                 
+
                         {% if not user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
@@ -37,18 +37,22 @@
                             <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
                         </li>
                         {% endif %}
+                        {% if user.is_authenticated %}
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'accounts:logout' %}">logout</a>
+                            <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
                         </li>
+                        {% endif %}
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'basket_view' %}">
                                 Basket
                                 {% if user.is_authenticated %}
-                                    {{ basket_item_count }}
+                                {{ basket_item_count }}
                                 {% endif %}
                             </a>
                         </li>
-                        
+
 
 
                     </ul>
@@ -58,7 +62,7 @@
                     {% block additional_form %}{% endblock %}
                     {% block user_info %}
                     {% if user.is_authenticated %}
-                    <div class="navbar-text me-3">
+                    <div class="navbar-text me-3 mx-auto text-center">                        
                         Welcome, {{ user.username }}
                     </div>
                     {% endif %}

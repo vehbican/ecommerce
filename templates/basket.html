@@ -1,12 +1,17 @@
-<h1>Your Basket</h1>
-<ul>
-    {% for item in basket_items %}
-    <li>
-        {{ item.product.title }} - {{ item.quantity }} x ${{ item.product.price }} = ${{ item.subtotal }}
+{% extends "base.html" %}
+{% load static %}
 
-        <a href="{% url 'remove_from_basket' item.product.id %}">Remove</a>
+{% block title %}Your Basket{% endblock %}
 
-    </li>
-    {% endfor %}
-</ul>
-<p>Total: ${{ total }}</p>
+{% block content %}
+    <h1>Your Basket</h1>
+    <ul>
+        {% for item in basket_items %}
+            <li>
+                {{ item.product.title }} - {{ item.quantity }} x ${{ item.product.price }} = ${{ item.subtotal }}
+                <a href="{% url 'remove_from_basket' item.product.id %}">Remove</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Total: ${{ total }}</p>
+{% endblock %}
